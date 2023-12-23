@@ -11,7 +11,7 @@ public:
     /* DO NOT MOFIFY ANY CODE IN THIS SECTION    */
     /*                                           */
 
-    // Constructor/Destructor
+    //Constructor/Destructor
     PathSolver();
     ~PathSolver();
 
@@ -19,26 +19,28 @@ public:
     // To be implemented for Milestone 2
     void forwardSearch(Env env);
 
+    //remove
+
     // Get a DEEP COPY of the explored NodeList in forward search
     // To be implemented for Milestone 2
-    NodeList* getNodesExplored();
+     NodeList* getNodesExplored();
 
     // Execute backtracking and Get a DEEP COPY of the path the 
     // robot should travel
     // To be implemented for Milestone 3
-    NodeList* getPath(Env env);
+     NodeList* getPath(Env env);
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
-private:
+// private:
     /*                                           */
     /* DO NOT MOFIFY THESE VARIABLES             */
     /*                                           */
 
     // Nodes explored in forward search algorithm
-    NodeList* nodesExplored;
+     NodeList* nodesExplored;
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */

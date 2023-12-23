@@ -13,7 +13,7 @@ void testNode();
 void testNodeList();
 
 // Read a environment from standard input.
-void readEnvStdin(Env env);
+void readEnvStdin(Env& env);
 
 // Print out a Environment to standard output with path.
 // To be implemented for Milestone 3
@@ -21,6 +21,7 @@ void printEnvStdout(Env env, NodeList* solution);
 
 
 int main(int argc, char** argv){
+
     // THESE ARE SOME EXAMPLE FUNCTIONS TO HELP TEST YOUR CODE
     // AS YOU WORK ON MILESTONE 2. YOU CAN UPDATE THEM YOURSELF
     // AS YOU GO ALONG.
@@ -36,30 +37,54 @@ int main(int argc, char** argv){
     
     // Solve using forwardSearch
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 2
-    PathSolver* pathSolver = new PathSolver();
-    pathSolver->forwardSearch(env);
+    // PathSolver* pathSolver = new PathSolver();
+    // pathSolver->forwardSearch(env);
 
-    NodeList* exploredPositions = nullptr;
-    exploredPositions = pathSolver->getNodesExplored();
+    // NodeList* exploredPositions = nullptr;
+    // exploredPositions = pathSolver->getNodesExplored();
 
     // Get the path
     // THIS WILL ONLY WORK IF YOU'VE FINISHED MILESTONE 3
-    NodeList* solution = pathSolver->getPath(env);
+    // NodeList* solution = pathSolver->getPath(env);
 
-    printEnvStdout(env, solution);
+    // printEnvStdout(env, solution);
 
-    delete pathSolver;
-    delete exploredPositions;
-    delete solution;
+    // delete pathSolver;
+    // delete exploredPositions;
+    // delete solution;
 
 }
 
-void readEnvStdin(Env env){
-    //TODO 
+void readEnvStdin(Env env) {
+    
+    // std::string filePath = "C:\\Git Repo\\Starter_Code\\sampleTest\\test01.env";
+    // std::ifstream file(filePath);
+
+    // if (file.is_open()) {
+
+    //     for (int row = 0; row < ENV_DIM; row++) {
+    //         for (int col = 0; col < ENV_DIM; col++) {
+    //             file >> env[row][col];
+    //         }
+    //     }
+
+    //     file.close();
+    // }
+    // else {
+        // std::cerr << "Failed to open file: " << filePath << std::endl;
+    // }
 }
+
 
 void printEnvStdout(Env env, NodeList* solution) {
-    //TODO
+
+    // std::cout << "Environment:" << std::endl;
+    // for (int row = 0; row < ENV_DIM; row++) {
+    //     for (int col = 0; col < ENV_DIM; col++) {
+    //         std::cout << env[row][col] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
 }
 
 void testNode() {
