@@ -31,8 +31,6 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
     
-
-
 private:
     /*                                           */
     /* DO NOT MOFIFY THESE VARIABLES             */
@@ -48,6 +46,7 @@ private:
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
+
 };
 
 

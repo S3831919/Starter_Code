@@ -3,7 +3,6 @@
 
 #include <math.h> 
 
-
 #define ENV_DIM                     20
 #define NODE_LIST_ARRAY_MAX_SIZE    4*(ENV_DIM * ENV_DIM)
 
