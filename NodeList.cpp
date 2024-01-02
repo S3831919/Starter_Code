@@ -13,6 +13,7 @@ NodeList::~NodeList(){
 
 NodeList::NodeList(NodeList& other){
     // TODO 
+    NodeList::length = other.length;
 }
 
 int NodeList::getLength(){

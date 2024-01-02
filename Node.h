@@ -30,7 +30,7 @@ public:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
-    // setter for row and col - Each node is created each time so may not need setters 
+    // GRLA - setter for row and col - Each node is created each time so may not need setters 
     int setRow(int row){
         this->row = row;
         return row;
