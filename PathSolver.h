@@ -39,13 +39,15 @@ public:
     /* DO NOT MOFIFY THESE VARIABLES             */
     /*                                           */
 
-    // Nodes explored in forward search algorithm
+    // Nodes explored in forward search algorithm (C in the Pseudo code)
      NodeList* nodesExplored;
 
     /*                                           */
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
     
+    // Nodes open in forward search algorithm (P in the Pseudo code)
+    NodeList* nodesOpen;
 };
 
 

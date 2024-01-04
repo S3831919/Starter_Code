@@ -55,6 +55,9 @@ private:
     /* YOU MAY ADD YOUR MODIFICATIONS HERE       */
     /*                                           */
 
+    Node* start;
+    Node* goal;
+
 };
 
 #endif //COSC_ASSIGN_ONE_NODE
