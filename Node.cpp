@@ -43,11 +43,8 @@ void Node::setDistanceTraveled(int dist_traveled)
 
 int Node::getEstimatedDist2Goal(Node* goal){
     // TODO
-    int total = 0;
 
-    std::cout << "total = " << total << std::endl;
-
-    return total;
+    return 0;
 
 }
     

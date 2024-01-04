@@ -7,6 +7,7 @@ PathSolver::PathSolver(){
     // This will be called when an instance of PathSolver is created
     nodesExplored = new NodeList(); 
     nodesOpen = new NodeList();   
+
 }
 
 PathSolver::~PathSolver(){
@@ -31,6 +32,9 @@ void PathSolver::forwardSearch(Env env){
     // Declare the start variable
     Node* start = nullptr; 
 
+    // Initialise Estimate Distance variable 
+    int estimateDistance = 0;
+
     // Declare the Manhatten variable
     int manhatten = 0;
 
@@ -46,10 +50,12 @@ void PathSolver::forwardSearch(Env env){
                 // sets the active node coordinates to start
                 p->setRow(row);
                 p->setCol(col);
-                p->setDistanceTraveled(1);
+                p->setDistanceTraveled(0);
 
                 // Add the already explored node to the nodesExplored list
                 nodesExplored->addElement(p);
+
+                std::cout << "p start = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl;
 
             }
 
@@ -58,21 +64,38 @@ void PathSolver::forwardSearch(Env env){
                 // Finds the goal node
                 goal = new Node(row, col, 0);
              
-                manhatten = (p->getCol() - goal->getCol()) + (p->getRow() - goal->getRow());
-            
-                std::cout << "manhatten = " << manhatten << std::endl;
+                manhatten = std::abs(p->getCol() - goal->getCol()) + std::abs(p->getRow() - goal->getRow());
+               
+                // std::cout << "manhatten = " << manhatten << std::endl;
 
+                while(p->getCol() != goal->getCol() && p->getRow() != goal->getRow()){
+
+                    estimateDistance = p->getDistanceTraveled() + manhatten; 
+                    
+                    p->setDistanceTraveled(p->getDistanceTraveled() + 1);
+                    p->setRow(p->getRow() + 1);
+                    p->setCol(p->getCol() + 1);
+            
+                    // Add the already explored node to the nodesExplored list
+                    nodesExplored->addElement(p);
+
+                    std::cout << "p active = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl;
+                  
+                }
+                    
             }
 
+           
         }
-
+                  
     }
 
         // Testing - Delete prior to submission 
-        std::cout << "p = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl;
         std::cout << "Goal = " << goal->getRow() << "," << goal->getCol() << std::endl;
         std::cout << "Start = " << start->getRow() << "," << start->getCol() << std::endl;
         std::cout << "nodesExplored = " << nodesExplored->getNode(0)->getDistanceTraveled() << std::endl;
+        std::cout << "Estimated distance = " << estimateDistance << std::endl; 
+        std::cout << "p final = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl;
 
  }
 
@@ -86,9 +109,9 @@ NodeList* PathSolver::getNodesExplored(){
 NodeList* PathSolver::getPath(Env env){
     // TODO
     // Return a DEEP COPY of the path
-    for(int i = 0; i < nodesExplored->getLength(); i++){
-        std::cout << nodesExplored->getNode(i)->getRow() << "," << nodesExplored->getNode(i)->getCol() << std::endl;
-    }
+    // for(int i = 0; i < nodesExplored->getLength(); i++){
+     // std::cout << nodesExplored->getNode(i)->getRow() << "," << nodesExplored->getNode(i)->getCol() << std::endl;
+    // }
     return nullptr;
 }
 
