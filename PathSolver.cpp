@@ -52,7 +52,7 @@ void PathSolver::forwardSearch(Env env){
                 
                 // Finds the start node and adds it to the nodesOpen list
                 start = new Node(row, col, 0);
-                nodesOpen->addElement(start);
+                nodesExplored->addElement(start);
 
                 // sets the active node coordinates to start
                 p->setRow(row);
@@ -75,10 +75,17 @@ void PathSolver::forwardSearch(Env env){
                 while(p->getCol() != goal->getCol()){
 
                     if(env[p->getRow()][p->getCol() + 1] == SYMBOL_EMPTY || env[p->getRow()][p->getCol() + 1] == SYMBOL_GOAL){
+                        
+                        p = new Node(p->getRow(), p->getCol(), p->getDistanceTraveled());
+                        nodesExplored->addElement(p);
+
                         p->setCol(p->getCol() + 1);
                         p->setDistanceTraveled(p->getDistanceTraveled() + 1);
-                        std::cout << p->getRow() << "," << p->getCol()  << "," << p->getDistanceTraveled() << std::endl;
+                        // std::cout << p->getRow() << "," << p->getCol()  << "," << p->getDistanceTraveled() << std::endl;
+
                     }
+
+                  
 
                     // std::cout << "Manhatten before = " << manhatten << std::endl; 
 
@@ -91,14 +98,20 @@ void PathSolver::forwardSearch(Env env){
                 while(p->getRow() != goal->getRow()){
                     
                     if(env[p->getRow() + 1][p->getCol()] == SYMBOL_EMPTY || env[p->getRow() + 1][p->getCol()] == SYMBOL_GOAL){
+                      
+                        p = new Node(p->getRow(), p->getCol(), p->getDistanceTraveled());
+                        nodesExplored->addElement(p);
+
                         p->setRow(p->getRow() + 1);
                         p->setDistanceTraveled(p->getDistanceTraveled() + 1);
-                        std::cout << p->getRow() << "," << p->getCol()  << "," << p->getDistanceTraveled() << std::endl;
-                    }
+                        // std::cout << p->getRow() << "," << p->getCol()  << "," << p->getDistanceTraveled() << std::endl;
 
+                      
+                    }
                        manhatten = manhatten + p->getDistanceTraveled();
+        
                 } 
-     std::cout << "Goal Found - " << p->getRow() << "," << p->getCol()  << "," << p->getDistanceTraveled() << std::endl;
+
             }
 
             if(env[row][col] == SYMBOL_EMPTY){
@@ -124,7 +137,14 @@ void PathSolver::forwardSearch(Env env){
         // std::cout << "nodesExplored = " << nodesExplored->getNode(0)->getDistanceTraveled() << std::endl;
         // std::cout << "Estimated distance = " << estimateDistance << std::endl; 
         // std::cout << "p final = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl;
-        // std::cout << "p right = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl; 
+        // std::cout << "p right = "<< p->getRow() << "," << p->getCol() << "," << p->getDistanceTraveled() << std::endl;
+
+    for(int i = 0; i < nodesExplored->getLength(); i++){
+        std::cout << nodesExplored->getNode(i)->getRow() << "," << nodesExplored->getNode(i)->getCol() << std::endl;
+    }
+
+    
+        std::cout << "Goal Node Found: " << p->getRow() << "," << p->getCol()  << " Number of steps: " << p->getDistanceTraveled() << std::endl;
 
  }
 
