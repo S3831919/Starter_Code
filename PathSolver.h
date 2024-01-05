@@ -48,6 +48,8 @@ public:
     
     // Nodes open in forward search algorithm (P in the Pseudo code)
     NodeList* nodesOpen;
+    NodeList* nodesClosed;
+    NodeList* nodesActive;
 };
 
 

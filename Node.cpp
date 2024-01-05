@@ -43,7 +43,6 @@ void Node::setDistanceTraveled(int dist_traveled)
 
 int Node::getEstimatedDist2Goal(Node* goal){
     // TODO
-
     return 0;
 
 }
